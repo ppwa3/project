@@ -1,10 +1,11 @@
-package banking;
+package banking2;
 
 import java.util.Scanner;
 
 import bank.schema.ICustomDefine;
+import banking.Account;
 
-public class AccountManager {
+public class AccountManager2 {
 	
 	//키보드 입력을 위한 인스턴스
 	static Scanner scan = new Scanner(System.in);
@@ -37,18 +38,17 @@ public class AccountManager {
 	}
 	//입금
 	public static void depositMoney() {
-		System.out.println("입금할 계좌번호를 입력하세요:");
-		String acNum = BankingSystemMain.scan.nextLine();
-		
-//		for(int i=0 ; i<accCnt ; i++) {
-//			if (accounts[i].setAccountNum().equals(acNum)) {
-//			accounts[i].deposit(a);
-//			System.out.println("입금완료");
-//			found = true;
-//			break;
-//			}
+		for (int i =0 ; i<accCnt ; i++) {
+			System.out.println(accounts[i]);
+			System.out.println("계좌번호:");
+			System.out.println("입금액:");
+			System.out.println("입금 완료!");
+		}
 	}
 	public static void withdrawMoney() {
+		for(int i=0 ; i<accCnt ; i++) {
+			System.out.println(accounts[i]);
+		}
 	}
 	public static void showAccInfo() {
 		for(int i=0 ; i<accCnt ; i++) {

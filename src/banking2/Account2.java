@@ -1,25 +1,30 @@
-package banking;
+package banking2;
 
 import java.util.Scanner;
 
 //계좌정보를 표현할 수 있는 Account라는 클래스 정의
-public class Account {
+public class Account2 {
+	
+	private Account2[] account;
+	private int numOfaccount;
+	
 	//계좌번호(String형), 이름(String형), 잔액(int형)
 	private String accountNum;
 	private String name;
 	private int balance;
 	//생성자 
-	public Account(String accountNum, String name, int balance) {
+	public Account2(String accountNum, String name, int balance) {
 		super();
 		this.accountNum = accountNum;
 		this.name = name;
 		this.balance = balance;
+		
 	}
 	//getter/setter
 	/**
 	 * @return the accountNum
 	 */
-	public String getAccNum() {
+	public String getAccountNum() {
 		return accountNum;
 	}
 	/**
@@ -55,9 +60,5 @@ public class Account {
 	@Override
 	public String toString() {
 		return "Account [계좌번호=" + accountNum + ", 이름=" + name + ", 잔고=" + balance + "]";
-	}
-	public void deposit(Account[] accounts) {
-		
-		
 	}
 }                              
