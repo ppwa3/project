@@ -38,23 +38,13 @@ public class AccountManager2 {
 	}
 	//입금
 	public static void depositMoney() {
-		for (int i =0 ; i<accCnt ; i++) {
-			System.out.println(accounts[i]);
-			System.out.println("계좌번호:");
-			System.out.println("입금액:");
-			System.out.println("입금 완료!");
-		}
+		
 	}
 	public static void withdrawMoney() {
-		for(int i=0 ; i<accCnt ; i++) {
-			System.out.println(accounts[i]);
-		}
+	
 	}
 	public static void showAccInfo() {
-		for(int i=0 ; i<accCnt ; i++) {
-			System.out.println(accounts[i]);
-		}
-		System.out.println("**전체계좌정보가 출력됨**");
+		
 	}
 	
 	public static void main(String[] args) {
@@ -95,31 +85,3 @@ public class AccountManager2 {
 			}//while 끝
 		}//main 끝
 	}//class 끝
-	// 계좌개설을 위한 함수
-//		public static void main(String[] args) {
-//			AccountInfoHandler handler = new AccountInfoHandler(50);
-//			
-//			while(true) {
-//				showMenu();
-//				int choice = scan.nextInt();
-//				scan.nextLine();
-//				switch(choice) {
-//				case 1: 
-//					handler.makeAccount(choice);
-//					break;
-//				case 2:
-//					handler.depositMoney(choice);
-//					break;
-//				case 3:
-//					handler.withdrawMoney(choice);
-//					break;
-//				case 4:
-//					handler.showAccInfo(choice);
-//					break;
-//				case 5:
-//					System.out.println("프로그램종료");
-//					return;
-//			}
-//		}
-//	}
-

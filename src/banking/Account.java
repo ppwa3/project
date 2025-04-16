@@ -57,7 +57,5 @@ public class Account {
 		return "Account [계좌번호=" + accountNum + ", 이름=" + name + ", 잔고=" + balance + "]";
 	}
 	public void deposit(Account[] accounts) {
-		
-		
 	}
 }                              

@@ -2,7 +2,7 @@ package banking2;
 
 import java.util.Scanner;
 
-import bank.schema.Account;
+import banking2.Account2;
 import bank.schema.ICustomDefine;
 
 public class BankingSystemMain2 {
@@ -10,7 +10,7 @@ public class BankingSystemMain2 {
 	//키보드 입력을 위한 인스턴스
 		static Scanner scan = new Scanner(System.in);
 		//계좌정보 저장을 위한 인스턴스배열
-		static Account[] accounts = new Account[50];
+		static Account2[] Account2s = new Account2[50];
 		//개설된 계좌정보 카운트용 변수
 		static int accCnt = 0;
 		
@@ -23,7 +23,7 @@ public class BankingSystemMain2 {
 		}
 		
 		// 계좌개설을 위한 함수
-		public static void makeAccount() {
+		public static void makeAccount2() {
 			System.out.print("계좌번호:");
 			String a = scan.nextLine();
 			System.out.print("이름:");
@@ -31,10 +31,28 @@ public class BankingSystemMain2 {
 			System.out.print("잔고:");
 			int b = scan.nextInt();
 			
-			//신규계좌 생성 및 추가
-			Account ac = new Account(a, n, b);
-			accounts[accCnt++] = ac;
-			System.out.println("신규계좌 개설 완료");
+			System.out.println("1. 보통예금계좌 2. 신용신뢰계좌");
+			int choice = scan.nextInt();
+			
+			if(choice==1) {
+				System.out.print("기본이자%(정수형태로입력):");
+				int i = scan.nextInt();
+				
+				NormalAccount2 norm = new NormalAccount2(a, n, b, i);
+				Account2s[accCnt++] = norm;
+				System.out.println("계좌계설이 완료되었습니다.");
+			}
+			else if(choice==2) {  
+				System.out.print("신용신뢰계좌:"); 
+				System.out.print("기본이자%(정수형태로입력):");
+				int inter = scan.nextInt();
+				scan.nextLine();
+				System.out.print("신용등급(A,B,C등급):");
+				String c = scan.nextLine();
+				HighCreditAccount2 high = new HighCreditAccount2(n, n, b, inter, c);
+				Account2s[accCnt++] = high;
+				System.out.println("계좌계설이 완료되었습니다.");
+			} 
 		} 
 		//입금
 		public static void depositMoney() {
@@ -46,13 +64,16 @@ public class BankingSystemMain2 {
 		public static void showAccInfo() {
 			for(int i=0 ; i<accCnt ; i++) {
 				//toString을 오버라이딩 했으므로 인스턴스 그대로 출력
-				System.out.println(accounts[i]);
+				System.out.println(Account2s[i]);
 			}
 			System.out.println("**전체계좌정보가 출력됨**");
-		} 
+		}
+		
+		
 
 	public static void main(String[] args) {
 		
+		AccountManager2 manager = new AccountManager2();
 		while(true) {
 			//메뉴출력
 			ShowMenu();
@@ -64,7 +85,7 @@ public class BankingSystemMain2 {
 			case ICustomDefine.MAKE:
 				//계좌개설
 				System.out.println("계좌개설");
-				makeAccount();
+				makeAccount2();
 				break;
 			case ICustomDefine.DEPOSIT:
 				//입금
@@ -84,6 +105,9 @@ public class BankingSystemMain2 {
 			case ICustomDefine.EXIT:
 				//프로그램 종료
 				System.exit(0);
+				break;
+			default :
+				
 				break;
 			}//switch 끝
 		}//while 끝
