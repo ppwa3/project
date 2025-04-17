@@ -11,7 +11,9 @@ public class NormalAccount2 extends Account2 {
 
 	@Override
 	public void showInfo() {
-		super.showInfo();
+		System.out.println("계좌번호: " + getAccountNum());
+		System.out.println("고객이름: " + getName());
+		System.out.println("잔액: " + getBalance());
 		System.out.println("이자율: " + interest + "%");
 
 	}
@@ -22,11 +24,12 @@ public class NormalAccount2 extends Account2 {
 	}
 
 	@Override
-	public void countMoney(int money) {
-		double totalBalance = getBalance() + (getBalance() * interest / 100.0) + money;
+	public int countMoney(int money) {
+		double totalBalance = getBalance() + (getBalance() * interest / 100) + money;
 		System.out.println("일반계좌:" + totalBalance + "원");
 		int newB = (int) totalBalance;
 		setBalance(newB);
+		return getBalance();
 
 	}
 

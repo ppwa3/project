@@ -14,7 +14,7 @@ public class Account2 {
 	 private int balance;
 	//생성자 
 	public Account2(String accountNum, String name, int balance) {
-		super();
+		
 		this.accountNum = accountNum;
 		this.name = name;
 		this.balance = balance;
@@ -30,12 +30,12 @@ public class Account2 {
 		
 	}
 	
-	public void countMoney(int money) {
-
+	public int countMoney(int money) {
+		return balance;
 	}
 	
-	public void deposit() {
-		
+	public int deposit() {
+		return balance;
 	}
 	
 	public String getAccountNum() {
