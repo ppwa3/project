@@ -26,13 +26,11 @@ public class NormalAccount3 extends Account3 {
 	}
 
 	@Override
-	public int countMoney(int money) {
+	public void plusMoney(int money) {
 		double totalBalance = getBalance() + (getBalance() * interest / 100) + money;
 		System.out.println("일반계좌:" + totalBalance + "원");
 		int newB = (int) totalBalance;
 		setBalance(newB);
-		return getBalance();
-
 	}
 
 }

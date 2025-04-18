@@ -86,14 +86,17 @@ public class AccountManager3 {
 				scan.nextLine();
 				// 조건식 : addBalance가 입금할 금액이고 %를 사용해서 나머지가 0이면 입금가능
 				if (addBalance < 0) {
-
-					if (addBalance % 500 == 0) {
-						accounts[i].countMoney(addBalance);
-					} else {
-						System.out.println("입금액은 500단위로만 가능");
-					}
+					System.out.println("음수는입금할수없다.");
 					// void지만 return이 생략되어있다. 메서드를 끝내기 위해서 return을 쓴다.
 					return;
+				} else {
+					if (addBalance % 500 == 0) {
+						accounts[i].plusMoney(addBalance);
+						return;
+					} else {
+						System.out.println("입금액은 500단위로만 가능");
+						return;
+					}
 				}
 
 			}
@@ -115,7 +118,27 @@ public class AccountManager3 {
 			if (searchAccount.compareTo(accounts[i].getAccountNum()) == 0) {
 				System.out.print("출금할 금액을 입력하세요:");
 				int money = AccountManager3.scan.nextInt();
-				int balance = accounts[i].getBalance() - money;
+				if (money < 0) {
+					System.out.println("음수는출금할수없다.");
+				return;
+				}
+				else {
+					if (money % 1000 == 0) {
+						//accounts[i]배열안에 있는 계좌에서 Balance가져오기
+						if(accounts[i].getBalance() < money) {
+							System.out.println("잔고가부족합니다.금액전체를출금할까요?");
+							System.out.println("YES:금액전체출금처리");
+							System.out.println("NO:출금요청취소");
+							String money1 = AccountManager3.scan.nextLine();
+							if(money1.equals("YES")) {
+								accounts[i].setBalance(0);
+							}
+							else if(money1.equals("NO")) {
+								
+							}
+						}
+					}
+				}
 				accounts[i].setBalance(balance);
 			}
 		}
@@ -124,11 +147,13 @@ public class AccountManager3 {
 	// 모든계좌출력
 	public void showAccInfo() {
 		System.out.println("전체계좌출력:");
+		/*
+		 * if문이 for문 밖에 있어야한다. accCnt가 0인 상태이기 때문에 if문이 안쪽에 있으면 코드가 제대로 실행되지 않는다.
+		 */
+		if (accCnt == 0) {
+			System.out.println("계좌가 없다.");
+		}
 		for (int i = 0; i < accCnt; i++) {
-			if (accCnt == 0) {
-				System.out.println("계좌가 없다.");
-
-			}
 			// 방법 1번
 //			System.out.println("계좌번호: "+accounts[i].getAccountNum());
 //			System.out.println("계좌번호: "+accounts[i].getName());

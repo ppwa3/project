@@ -32,7 +32,7 @@ public class HighCreditAccount3 extends Account3 {
 	}
 	
 	@Override
-	public int countMoney(int money) {
+	public void plusMoney(int money) {
 		//변수를 double형으로 선언해줌, 추가이자를 저장하기 위한 변수이다.
 		double plusInter=0;//추가이자
 		//신용등급에 따라 이자율을 다르게 적용시켜주기 위해서 if문을 사용
@@ -52,7 +52,7 @@ public class HighCreditAccount3 extends Account3 {
 		System.out.println("신용계좌 :" + totalBalance + "원");
 		int newB = (int) totalBalance;
 		setBalance(newB);
-		return getBalance();
+		//return getBalance();
 
 	}
 

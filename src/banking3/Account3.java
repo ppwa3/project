@@ -30,8 +30,7 @@ public class Account3 {
 		
 	}
 	
-	public int countMoney(int money) {
-		return balance;
+	public void plusMoney(int money) {
 	}
 	
 	public int deposit() {
